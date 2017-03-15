@@ -1,2 +1,3 @@
 setup:
-	@echo "source ~/.vim/.vimrc" > ~/.vimrc
+	cp .vimrc ~/.vimrc
+	cp ./ -r ~/.vim/
