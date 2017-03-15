@@ -11,11 +11,11 @@ If you run
 ```sh
 $ make setup
 ```
-the Makefile will echo into your vimrc to source the vimrc in this project. As this project was made (1) for me to clone it everywhere I code and to maintain a single .vimrc and (2) for beginners, I expect your .vimrc file to be empty/non-existant. I have NOT tested the Makefile as a form to integrate this project with another .vimrc. Which means it is not pluggable (yet).
+the Makefile will echo into your vimrc to source the vimrc in this project. As this project was made (1) for me to clone it everywhere I code and to maintain a single .vimrc and (2) for beginners, I expect your .vimrc file to be empty/non-existant. I have NOT tested the Makefile as a form to integrate this project with another .vimrc. Which means it is not a plug-and-play repo(yet).
 
 ### Stuff to keep in mind
 
-I'm a noob with Vim. Everything in this .vimrc was added as I felt that something was missing, which is why I feel this is a great .vimrc for beginners. I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) a plugin manager
+I'm a noob with Vim. Everything in this .vimrc was added as I felt that something was missing, which is why I feel this is a great .vimrc for beginners. I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
 
 ### Contribution
 
