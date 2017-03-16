@@ -30,10 +30,10 @@ So, for the moment, I will not make it as pluggable as it could be. Any hints wo
 
 ### Stuff to keep in mind
 
-1.I'm a noob with Vim. 
-2.Everything in this .vimrc was added as I felt that something was missing, which is why I feel this is a great .vimrc for beginners. 
-3.I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
-4.I'm currently working as a full time developer, as I go for my Information Systems degree. Which means you should NOT wait for daily/weekly updates.
+1. I'm a noob with Vim. 
+2. Everything in this .vimrc was added as I felt that something was missing, which is why I feel this is a great .vimrc for beginners. 
+3. I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
+4. I'm currently working as a full time developer, as I go for my Information Systems degree. Which means you should NOT wait for daily/weekly updates.
 
 ### Contribution
 
