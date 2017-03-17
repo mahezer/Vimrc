@@ -122,6 +122,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-syntastic/syntastic'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
+  Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 syntax on
