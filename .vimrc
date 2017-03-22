@@ -170,3 +170,5 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
 let g:syntastic_html_checkers = ['tidy']
+let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
