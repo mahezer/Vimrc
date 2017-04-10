@@ -123,6 +123,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'chrisbra/Colorizer'
 call plug#end()
 
 syntax on
@@ -172,3 +173,5 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_php_checkers = ['phpcs']
 let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+
+let g:colorizer_auto_filetype='css,html'
