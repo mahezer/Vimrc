@@ -66,6 +66,10 @@ nmap <Leader>gc :Gcommit<CR>
 """Select some text, press double forward slashes, find it everywhere else in the current file
 vnoremap // y/<C-R>"<CR>
 
+"""Buffer switching
+nnoremap <Leader>bp :bprev<CR>
+nnoremap <Leader>bn :bnext<CR>
+
 """Break compatibility with Vi, which means enabling every sweet stuff Vim brings us(which I am not completely aware of)
 set nocompatible
 
@@ -124,6 +128,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'chrisbra/Colorizer'
+  Plug 'taohex/lightline-buffer'
 call plug#end()
 
 syntax on
@@ -131,8 +136,27 @@ set t_Co=256
 colorscheme gruvbox
 set background=dark
 
+set hidden  " allow buffer switching without saving
+set showtabline=2  " always show tabline
+
+" use lightline-buffer in lightline
 let g:lightline = {
-      \}
+	\ 'tabline': {
+		\ 'left': [ [ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+		\ 'right': [ [ 'close' ], ],
+		\ },
+	\ 'component_expand': {
+		\ 'buffercurrent': 'lightline#buffer#buffercurrent2',
+		\ },
+	\ 'component_type': {
+		\ 'buffercurrent': 'tabsel',
+		\ },
+	\ 'component_function': {
+		\ 'bufferbefore': 'lightline#buffer#bufferbefore',
+		\ 'bufferafter': 'lightline#buffer#bufferafter',
+		\ 'bufferinfo': 'lightline#buffer#bufferinfo',
+		\ },
+	\ }
 
 highlight ColorColumn ctermbg=8
 
