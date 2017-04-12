@@ -69,6 +69,7 @@ vnoremap // y/<C-R>"<CR>
 """Buffer switching
 nnoremap <Leader>bp :bprev<CR>
 nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bc :bdelete<CR>
 
 """Break compatibility with Vi, which means enabling every sweet stuff Vim brings us(which I am not completely aware of)
 set nocompatible
