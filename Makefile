@@ -1,3 +1,3 @@
 setup:
 	cp .vimrc ~/.vimrc
-	cp ./ -r ~/.vim/
+	cp ./ -r -a ~/.vim/
