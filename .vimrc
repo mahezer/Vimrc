@@ -89,56 +89,95 @@ set dir=~/tmp
 """Indentation stuff
 filetype plugin indent on
 
-"" Whitespace
+"""" Do not break lines that overflows the screen
 set nowrap 
+""" Setting tab size; Tabs are actually 2 spaces, but the size is the same
 set tabstop=2 shiftwidth=2
+""" Set tabs to be spaces instead of actual tabs
 set expandtab
+""" Allows backspace to walk around better
 set backspace=indent,eol,start
 
-"" Searching
+""" Highlight search matches
 set hlsearch
+""" Start highlighting as you type the search
 set incsearch
+""" Ignore case on searches
 set ignorecase
+""" If you type upper and lower cased letters, they will be respected
 set smartcase
 
+""" Always draw the status line
 set laststatus=2
 
+""" You can indent with Tab and unindent with Shift + Tab
 nnoremap <S-TAB> <<
 nnoremap <TAB> >>
 
+""" Start plugin imports
 call plug#begin('~/.vim/plugged')
+  """ Vim theme
   Plug 'w0ng/vim-hybrid'
+  """ PHP syntax highlighter
   Plug 'StanAngeloff/php.vim'
+  """ Plugin that shows the folder tree
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  """ PHP Laravel Blade syntax highlighter
   Plug 'jwalton512/vim-blade'
+  """ Fuzzy search for files. Quite useful
   Plug 'ctrlpvim/ctrlp.vim'
+  """ When you type {, [ and ( vim automatically draws the corresponding }, ] or )
   Plug 'jiangmiao/auto-pairs'
+  """ Just check this webpage: https://docs.emmet.io/cheat-sheet/ . Beautiful.  Most of the commands in this cheatsheet work in vim
   Plug 'mattn/emmet-vim'
+  """ Forgot to put some stuff inside parenthesis, quotes, whatever ? No problem we got that. tpope did, actually
   Plug 'tpope/vim-surround'
+  """ Custom status line
   Plug 'itchyny/lightline.vim'
+  """ Another theme. Works good for Python
   Plug 'lanox/lanox-vim-theme'
+  """ Neat colorscheme
   Plug 'vim-scripts/xoria256.vim'
+  """ Google for editorconfig. This plugin makes vim obey it.
   Plug 'editorconfig/editorconfig-vim'
+  """ The theme i'm (and you, if you didn't changed it) currently using
   Plug 'morhetz/gruvbox'
+  """ Beautiful plugin. Got 2 splits and want to swap them ? this is what you'll use
   Plug 'wesQ3/vim-windowswap'
+  """ Search on the whole directory ? got that part covered
   Plug 'dyng/ctrlsf.vim'
+  """ JS beautifier for vim. Useful when you need to read minified code
   Plug 'maksimr/vim-jsbeautify'
+  """ Sort of FTP, with an editor
   Plug 'zenbro/mirror.vim'
+  """ Syntax checker. Also checks for style guides
   Plug 'vim-syntastic/syntastic'
+  """ tpope nailed it. 'A Git wrapper so awesome, it should be illegal'. Git from vim. That's it.
   Plug 'tpope/vim-fugitive'
+  """ Comments done easily
   Plug 'tpope/vim-commentary'
+  """ self explanatory name. multiple cursors on vim
   Plug 'terryma/vim-multiple-cursors'
+  """ make hexadecimals and rgbs shine their color to the world
   Plug 'chrisbra/Colorizer'
+  """ Show all your buffers. Neat if you have tabs problems, and splits ain't an option
   Plug 'taohex/lightline-buffer'
+  """ End plugin imports
 call plug#end()
 
+""" Allows syntax highlighting
 syntax on
+""" Define vim to show 256 colors. For Terminator.
 set t_Co=256
+""" The colorscheme I'm using (and you, probably)
 colorscheme gruvbox
+""" the theme of the colorscheme
 set background=dark
 
-set hidden  " allow buffer switching without saving
-set showtabline=2  " always show tabline
+""" allow buffer switching without saving
+set hidden 
+" always show upper tabline
+set showtabline=2  
 
 " use lightline-buffer in lightline
 let g:lightline = {
@@ -158,9 +197,12 @@ let g:lightline = {
 		\ 'bufferinfo': 'lightline#buffer#bufferinfo',
 		\ },
 	\ }
-
+""" It's a good practice to limit the size of your lines. This shows it with a color of your liking
 highlight ColorColumn ctermbg=8
 
+""" You'll be amazed of how pissed you get after misspelling :w twice. 
+"""This list saves you of some stress. 
+"""It doesn't hurt to be less angry at the end of the day.
 cab W w
 cab Wq wq
 cab Wqa wqa
@@ -185,16 +227,19 @@ cab So so
 cab sO so
 cab SO so
 
+"""Shows syntastic errors on the status line
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%F
 set statusline+=%*
 
+""" Syntastic config
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
+""" Which linters will be used for which filetype
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_php_checkers = ['phpcs']
 let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
