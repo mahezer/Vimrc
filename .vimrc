@@ -65,6 +65,8 @@ nmap <Leader>gc :Gcommit<CR>
 
 """Select some text, press double forward slashes, find it everywhere else in the current file
 vnoremap // y/<C-R>"<CR>
+"""Select some text, press Ctrl F, find it everywhere else in the current folder
+vmap <C-F> <Plug>CtrlSFCwordExec
 
 """Buffer switching
 nnoremap <Leader>bp :bprev<CR>
