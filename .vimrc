@@ -164,6 +164,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/Colorizer'
   """ Show all your buffers. Neat if you have tabs problems, and splits ain't an option
   Plug 'taohex/lightline-buffer'
+  """ Syntax for typescript
+  Plug 'leafgarland/typescript-vim'
   """ End plugin imports
 call plug#end()
 
