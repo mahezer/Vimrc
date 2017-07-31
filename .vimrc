@@ -71,7 +71,8 @@ vmap <C-F> <Plug>CtrlSFCwordExec
 """Buffer switching
 nnoremap <Leader>bp :bprev<CR>
 nnoremap <Leader>bn :bnext<CR>
-nnoremap <Leader>bc :bdelete<CR>
+"""Buffer deleting
+nnoremap <Leader>bc :BD<CR>
 
 """Break compatibility with Vi, which means enabling every sweet stuff Vim brings us(which I am not completely aware of)
 set nocompatible
@@ -166,6 +167,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'taohex/lightline-buffer'
   """ Syntax for typescript
   Plug 'leafgarland/typescript-vim'
+  """ Buffer clear without closing my split
+  Plug 'qpkorr/vim-bufkill'
   """ End plugin imports
 call plug#end()
 
