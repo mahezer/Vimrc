@@ -5,6 +5,9 @@ let mapleader = ' '
 imap jj <Esc>
 imap kk <Esc>
 
+"""Reload file
+nmap <F5> :e<CR>
+
 """Sometimes I forget to leave insert mode to save my files, this is what saves me
 imap :w<CR> <Esc>:w<CR>i
 
