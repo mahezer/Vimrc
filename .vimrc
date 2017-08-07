@@ -1,5 +1,5 @@
 """Set a leader key, so you have a clean keyboard to map after <Leader>
-:let mapleader = ' '
+let mapleader = ' '
 
 """Escape insert mode everytime you go double 'k' or double 'j'
 imap jj <Esc>
@@ -177,9 +177,9 @@ syntax on
 """ Define vim to show 256 colors. For Terminator.
 set t_Co=256
 """ The colorscheme I'm using (and you, probably)
-colorscheme gruvbox
+colors knuckleduster
 """ the theme of the colorscheme
-set background=dark
+""" set background=dark
 
 """ allow buffer switching without saving
 set hidden 
