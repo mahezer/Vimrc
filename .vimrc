@@ -1,4 +1,4 @@
-"""Set a leader key, so you have a clean keyboard to map after <Leader>
+"Set a leader key, so you have a clean keyboard to map after <Leader>
 let mapleader = ' '
 
 """Escape insert mode everytime you go double 'k' or double 'j'
@@ -13,6 +13,8 @@ imap :w<CR> <Esc>:w<CR>i
 
 """This is the map to open Ctrlsf, a plugin to search strings all over the project
 nmap <C-f> <Plug>CtrlSFPrompt
+
+nmap <C-p> :find<Space>
 
 """ This mapping is to create a blank line without having to do all the work needed for creating a blank line
 nmap <Leader><CR> i<CR>jj
@@ -44,7 +46,7 @@ nmap <Leader>tp :tabp<CR>
 """Those commands were make for you to manually manage your splits
 
 """Those are to make splits bigger/smaller
-nmap <Leader>k :res<Space>-10<CR>
+nnoremap <Leader>k :res<Space>-10<CR>
 nmap <Leader>j :res<Space>+10<CR>
  
 """Those are to make vertical splits bigger/smaller
@@ -68,8 +70,6 @@ nmap <Leader>gc :Gcommit<CR>
 
 """Select some text, press double forward slashes, find it everywhere else in the current file
 vnoremap // y/<C-R>"<CR>
-"""Select some text, press Ctrl F, find it everywhere else in the current folder
-vmap <C-F> <Plug>CtrlSFCwordExec
 
 """Buffer switching
 nnoremap <Leader>bp :bprev<CR>
@@ -130,8 +130,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   """ PHP Laravel Blade syntax highlighter
   Plug 'jwalton512/vim-blade'
-  """ Fuzzy search for files. Quite useful
-  Plug 'ctrlpvim/ctrlp.vim'
   """ When you type {, [ and ( vim automatically draws the corresponding }, ] or )
   Plug 'jiangmiao/auto-pairs'
   """ Just check this webpage: https://docs.emmet.io/cheat-sheet/ . Beautiful.  Most of the commands in this cheatsheet work in vim
@@ -152,12 +150,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'wesQ3/vim-windowswap'
   """ Search on the whole directory ? got that part covered
   Plug 'dyng/ctrlsf.vim'
-  """ JS beautifier for vim. Useful when you need to read minified code
-  Plug 'maksimr/vim-jsbeautify'
   """ Sort of FTP, with an editor
   Plug 'zenbro/mirror.vim'
   """ Syntax checker. Also checks for style guides
-  Plug 'vim-syntastic/syntastic'
+  Plug 'w0rp/ale'
+  """ Async prettier
+  Plug 'skywind3000/asyncrun.vim'
   """ tpope nailed it. 'A Git wrapper so awesome, it should be illegal'. Git from vim. That's it.
   Plug 'tpope/vim-fugitive'
   """ Comments done easily
@@ -172,8 +170,30 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   """ Buffer clear without closing my split
   Plug 'qpkorr/vim-bufkill'
+  """ Elm highlighting
+  Plug 'elmcast/elm-vim'
+  """ Oracle client
+  """ Plug 'talek/vorax4'
+  """ Vue Syntax highlight
+  Plug 'posva/vim-vue'
+  """ JS syntax highlight
+  Plug 'pangloss/vim-javascript'
+  """ JSX syntax highlight
+  Plug 'mxw/vim-jsx'
+  """ Go stuff :)
+  Plug 'fatih/vim-go'
+  """ Code completion
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
   """ End plugin imports
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 """ Allows syntax highlighting
 syntax on
@@ -237,21 +257,22 @@ cab So so
 cab sO so
 cab SO so
 
-"""Shows syntastic errors on the status line
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%F
-set statusline+=%*
-
-""" Syntastic config
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-
-""" Which linters will be used for which filetype
-let g:syntastic_html_checkers = ['tidy']
-let g:syntastic_php_checkers = ['phpcs']
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
-
 let g:colorizer_auto_filetype='css,html'
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+set path+=**
+
+let g:ale_lint_on_enter = 1
+let g:ale_fix_on_save = 1
+let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_fixers = {'javascript': ['eslint']}
+
+set rubydll=/home/mahezer/.rvm/rubies/ruby-2.4.0/lib/libruby.so.2.4
+
+au BufRead *.sql
+  \ set serveroutput on
+  \ begin
+  \    dbms_output.put_line('Test');
+  \ end;
+
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %

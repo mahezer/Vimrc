@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/mahezer/go/src/go101/web101'
+let g:netrw_dirhist_2='/home/mahezer/fisqueue'
+let g:netrw_dirhist_3='/home/mahezer/fisqueue-front'
+let g:netrw_dirhist_4='/home/mahezer/fisqueue'
