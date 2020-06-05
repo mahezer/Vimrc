@@ -1,3 +1,5 @@
 setup:
 	cp .vimrc ~/.vimrc
-	cp ./ -r -a ~/.vim/
+	mkdir ~/.vim
+	cp -a autoload ~/.vim/autoload
+	cp -a colors ~/.vim/colors

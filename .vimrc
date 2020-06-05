@@ -167,7 +167,7 @@ call plug#begin('~/.vim/plugged')
   """ make hexadecimals and rgbs shine their color to the world
   Plug 'chrisbra/Colorizer'
   """ Show all your buffers. Neat if you have tabs problems, and splits ain't an option
-  Plug 'taohex/lightline-buffer'
+  Plug 'taohexxx/lightline-buffer'
   """ Syntax for typescript
   Plug 'leafgarland/typescript-vim'
   """ Buffer clear without closing my split
