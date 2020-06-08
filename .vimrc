@@ -172,6 +172,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   """ Buffer clear without closing my split
   Plug 'qpkorr/vim-bufkill'
+  """ JSX Syntax Highlight
+  Plug 'MaxMEllon/vim-jsx-pretty'
   """ End plugin imports
 call plug#end()
 
